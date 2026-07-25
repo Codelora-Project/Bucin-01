@@ -1,16 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 /**
- * Ultra-smooth, bug-free custom cursor using direct DOM manipulation via refs.
- * Zero React state updates on mousemove -> 60fps performance without lag or bugs.
+ * CustomCursor - Desktop mouse cursor enhancement.
+ * Automatically disables & removes all elements on touch devices / mobile phones
+ * to prevent static dot bugs at top-left corner.
  */
 export default function CustomCursor() {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    // Only activate on devices with a mouse pointer
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+    // Detect mobile touch devices
+    const isTouch =
+      window.matchMedia('(pointer: coarse)').matches ||
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0;
+
+    if (isTouch) {
+      setIsTouchDevice(true);
+      return;
+    }
 
     let mouseX = -100;
     let mouseY = -100;
@@ -28,7 +38,6 @@ export default function CustomCursor() {
     };
 
     const render = () => {
-      // Smooth interpolation for the trailing ring
       ringX += (mouseX - ringX) * 0.18;
       ringY += (mouseY - ringY) * 0.18;
 
@@ -62,12 +71,15 @@ export default function CustomCursor() {
     };
   }, []);
 
+  // Do NOT render cursor DOM on mobile phones / touch devices
+  if (isTouchDevice) return null;
+
   return (
     <>
       <style>{`
-        @media (pointer: fine) {
-          body, a, button, input {
-            cursor: default; /* Keep fallback clean to avoid browser flickering bugs */
+        @media (pointer: coarse), (hover: none) {
+          .custom-cursor-element {
+            display: none !important;
           }
         }
       `}</style>
@@ -75,6 +87,7 @@ export default function CustomCursor() {
       {/* Main Cursor Dot */}
       <div
         ref={dotRef}
+        className="custom-cursor-element"
         style={{
           position: 'fixed',
           top: 0,
@@ -87,13 +100,14 @@ export default function CustomCursor() {
           zIndex: 99999,
           willChange: 'transform',
           boxShadow: '0 0 8px rgba(232, 136, 155, 0.6)',
-          transition: 'transform 0.05s ease-out',
+          transform: 'translate3d(-100px, -100px, 0)',
         }}
       />
 
       {/* Trailing Outer Ring */}
       <div
         ref={ringRef}
+        className="custom-cursor-element"
         style={{
           position: 'fixed',
           top: 0,
@@ -105,7 +119,7 @@ export default function CustomCursor() {
           pointerEvents: 'none',
           zIndex: 99998,
           willChange: 'transform',
-          transition: 'border-color 0.2s',
+          transform: 'translate3d(-100px, -100px, 0)',
         }}
       />
     </>
