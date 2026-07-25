@@ -5,7 +5,7 @@
 export const siteContent = {
   // 1. Hero & Welcome Screen Data
   welcome: {
-    recipientName: "Beby",
+    recipientName: "Citra Sayangg",
     senderName: "Me",
     title: "For You, My Everything",
     subtitle: "Every petal holds a whisper of how much you mean to me.",

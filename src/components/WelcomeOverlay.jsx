@@ -10,46 +10,42 @@ export default function WelcomeOverlay({ recipientName, onEnter }) {
     if (isOpening || isAnimating) return;
     setIsAnimating(true);
 
-    // STEP 1: Fire flower petal explosion on the Welcome Overlay
+    // 1. Fire flower petal burst on the welcome overlay FIRST
     confetti({
       particleCount: 140,
-      spread: 120,
+      spread: 130,
       origin: { x: 0.5, y: 0.5 },
       colors: ['#f2b6c1', '#e8889b', '#ffd6e0', '#ffffff', '#d66f83', '#fce8eb', '#e2a9b2'],
       scalar: 1.3,
       ticks: 250,
-      gravity: 0.7,
+      gravity: 0.75,
     });
 
+    // Secondary blooming burst
     setTimeout(() => {
       confetti({
         particleCount: 70,
         angle: 60,
         spread: 90,
-        origin: { x: 0.2, y: 0.5 },
+        origin: { x: 0.25, y: 0.5 },
         colors: ['#f2b6c1', '#e8889b', '#ffffff'],
       });
       confetti({
         particleCount: 70,
         angle: 120,
         spread: 90,
-        origin: { x: 0.8, y: 0.5 },
+        origin: { x: 0.75, y: 0.5 },
         colors: ['#f2b6c1', '#e8889b', '#ffffff'],
       });
-    }, 200);
+    }, 250);
 
-    // STEP 2: Wait 1.2s for flower animation to fully finish on overlay card
+    // 2. Wait 900ms for flower petals to bloom on overlay, THEN fade out & transition to main page
     setTimeout(() => {
-      // Start CSS fade-out transition
       setIsOpening(true);
-
-      // STEP 3: Wait 600ms for fade-out to finish before triggering main page transition & audio
-      setTimeout(() => {
-        if (onEnter) {
-          onEnter();
-        }
-      }, 650);
-    }, 1250);
+      if (onEnter) {
+        onEnter();
+      }
+    }, 950);
   };
 
   return (
@@ -69,7 +65,7 @@ export default function WelcomeOverlay({ recipientName, onEnter }) {
         cursor: 'pointer',
         opacity: isOpening ? 0 : 1,
         transform: isOpening ? 'scale(1.08)' : 'scale(1)',
-        transition: 'opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
         pointerEvents: isOpening ? 'none' : 'auto',
       }}
     >
@@ -85,8 +81,8 @@ export default function WelcomeOverlay({ recipientName, onEnter }) {
           border: '1px solid rgba(232, 136, 155, 0.25)',
           boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8)',
           position: 'relative',
-          transform: isAnimating && !isOpening ? 'scale(1.04)' : 'scale(1)',
-          transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+          transform: isAnimating && !isOpening ? 'scale(1.03)' : 'scale(1)',
+          transition: 'transform 0.4s ease',
         }}
       >
         {/* Soft Glowing Stamp */}

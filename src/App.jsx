@@ -31,34 +31,31 @@ export default function App() {
         />
       )}
 
-      {/* Main Website Content with smooth fade-in reveal when entered */}
-      <div
-        className={hasEntered ? 'animate-page-enter' : ''}
-        style={{
-          opacity: hasEntered ? 1 : 0,
-          transition: 'opacity 0.8s ease',
-          pointerEvents: hasEntered ? 'auto' : 'none',
-        }}
-      >
-        <AmbientBackground />
+      {/* Main Website Content */}
+      <AmbientBackground />
 
-        <Navbar recipientName={siteContent.welcome.recipientName} />
+      <Navbar
+        recipientName={siteContent.welcome.recipientName}
+        hasEntered={hasEntered}
+      />
 
-        <HeroSection welcomeData={siteContent.welcome} />
+      <HeroSection
+        welcomeData={siteContent.welcome}
+        hasEntered={hasEntered}
+      />
 
-        <GallerySection items={siteContent.gallery} />
+      <GallerySection items={siteContent.gallery} />
 
-        <MusicPlayer songs={siteContent.songs} autoPlayTrigger={hasEntered} />
+      <MusicPlayer songs={siteContent.songs} autoPlayTrigger={hasEntered} />
 
-        <QuizSection quizData={siteContent.quiz} />
+      <QuizSection quizData={siteContent.quiz} />
 
-        <SecretLetterSection loveLetter={siteContent.loveLetter} />
+      <SecretLetterSection loveLetter={siteContent.loveLetter} />
 
-        <Footer
-          recipientName={siteContent.welcome.recipientName}
-          senderName={siteContent.welcome.senderName}
-        />
-      </div>
+      <Footer
+        recipientName={siteContent.welcome.recipientName}
+        senderName={siteContent.welcome.senderName}
+      />
     </div>
   );
 }

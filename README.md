@@ -1,110 +1,107 @@
-# 💖 Website Bucin - Panduan Pengisian Konten & Penggunaan
+# 💖 Deep Dark Romantic Personal Website — Customization & Setup Guide
 
-Selamat datang! Website ini adalah sebuah **ruang digital romantis** yang dibuat khusus sebagai kejutan untuk pasangan Anda. Di dalamnya terdapat halaman pembuka pembawa mood, galeri foto & video kenangan, pemutar musik favorit, kuis kenangan interaktif, serta surat cinta rahasia yang dikunci dengan PIN.
+Welcome! This website is an intimate, atmospheric **digital love letter** created as a personal surprise. It features a dark velvet aesthetic, twinkling stars, 3D falling flower petals, a persistent music player, an interactive memory trivia quiz, an aesthetic frame gallery, and a sealed secret love letter.
 
-Panduan ini dibuat untuk memudahkan Anda **mengganti foto, video, lagu, kuis, PIN, dan surat cinta** tanpa perlu memahami pemrograman yang rumit.
+This guide explains **how to personalize photos, videos, music, quiz trivia, secret letter PIN, and content** without needing complex coding knowledge.
 
 ---
 
-## 📁 1. Dimana Lokasi File Konten?
+## 📁 1. Content File Location
 
-Semua pengisian konten dilakukan pada **satu file terpusat**:
+All website content and customization are centralized in **one single file**:  
 👉 **`src/config/content.js`**
 
-Semua file foto (`.jpg`, `.png`), video (`.mp4`), dan lagu (`.mp3`) milik Anda bisa ditaruh di folder:
-👉 **`public/assets/`** *(jika folder belum ada, Anda bisa membuatnya di dalam folder `public`)*.
+Place all your custom image (`.jpg`, `.png`), video (`.mp4`), and audio (`.mp3`) files into the folder:  
+👉 **`public/assets/`**
 
 ---
 
-## 🛠️ 2. Cara Menambahkan File Foto, Video, & Lagu Pribadi
+## 🛠️ 2. How to Add Your Own Photos, Videos, & Songs
 
-1. Siapkan file media Anda dan ganti namanya agar rapi, contoh:
-   - Foto: `foto1.jpg`, `foto2.jpg`
-   - Video: `video1.mp4`
-   - Lagu: `lagu1.mp3`
-   - Cover Lagu: `cover1.jpg`
-2. Pindahkan file-file tersebut ke folder **`public/assets/`**.
-3. Di file `src/config/content.js`, Anda cukup menuliskan lokasinya dengan awalan `/assets/nama-file.ext`. Contoh:
-   `src: "/assets/foto1.jpg"`
+1. Add your files into the **`public/assets/`** folder.
+2. In **`src/config/content.js`**, reference them using the path `/assets/filename.ext`.  
+   *Example:* `src: "/assets/my-photo.jpg"` or `src: "/assets/my-song.mp3"`
 
 ---
 
-## ✍️ 3. Panduan Mengedit `src/config/content.js`
+## ✍️ 3. Personalizing `src/config/content.js`
 
-Buka file `src/config/content.js` menggunakan text editor (VS Code / Notepad / Antigravity IDE).
+Open `src/config/content.js` in your text editor.
 
-### A. Mengubah Nama & Teks Pembuka (Welcome Screen)
+### A. Welcome Screen & Names
 ```javascript
 welcome: {
-  recipientName: "Beby", // Ganti dengan nama panggilan pasangan Anda
-  senderName: "Aku",      // Ganti dengan nama panggilan Anda
-  title: "Untuk Beby, yang selalu ada di hariku.",
-  subtitle: "Aku bikin website kecil ini buat kamu...",
-  badge: "Special for you",
-  startDate: "2023-02-14", // Format: YYYY-MM-DD (untuk hitungan hari bersama)
-  heroImage: "/assets/foto-sampul.jpg", // Foto utama di halaman pembuka
+  recipientName: "Citra Sayangg", // Name of your partner
+  senderName: "Me",               // Your name / nickname
+  title: "For You, My Everything",
+  subtitle: "Every petal holds a whisper of how much you mean to me.",
+  badge: "a love letter in bloom",
+  startDate: "2023-02-14",       // YYYY-MM-DD format (calculates days together)
+  heroImage: "/assets/hero-photo.jpg", // Main polaroid cover image
 }
 ```
 
 ---
 
-### B. Mengisi Galeri Foto & Video Kenangan
-Tambahkan atau ubah daftar `gallery`:
+### B. Aesthetic Photo & Video Gallery Grid
+Add or update items in `gallery`. You can add a romantic `tag` (1 word in script font) below each frame:
 
 ```javascript
 gallery: [
   {
     id: 1,
-    type: "photo", // Gunakan "photo" untuk foto
-    src: "/assets/foto1.jpg", // Path file di public/assets/ atau URL online
-    caption: "Kencan pertama di cafe favorit.",
-    date: "14 Feb 2023",
+    type: "photo",                // Use "photo" or "video"
+    src: "/assets/photo1.jpg",    // Path inside public/assets/
+    caption: "Our first coffee date. We talked until time seemed to stand still.",
+    tag: "you",                   // 1-word poetic script tag under the frame
+    date: "Feb 14, 2023",
     location: "Senja Coffee"
   },
   {
     id: 2,
-    type: "video", // Gunakan "video" untuk file video MP4
+    type: "video",                // Video clip
     src: "/assets/video1.mp4",
-    caption: "Video singkat waktu jalan di pantai.",
-    date: "15 Jan 2024",
-    location: "Pantai Indah"
+    caption: "A short clip walking along the beach together.",
+    tag: "always",
+    date: "Jan 15, 2024",
+    location: "Ocean Breeze"
   }
 ]
 ```
 
 ---
 
-### C. Menambahkan Lagu Favorit (Playlist)
-Ubah daftar `songs` di file `content.js`:
+### C. Favorite Song Playlist
+Update the `songs` playlist array:
 
 ```javascript
 songs: [
   {
     id: 1,
-    title: "Judul Lagu",
-    artist: "Nama Penyanyi",
-    src: "/assets/lagu1.mp3", // File MP3 di public/assets/
-    cover: "/assets/cover1.jpg" // Foto album/sampul lagu
+    title: "Sampai Jadi Debu",
+    artist: "Banda Neira",
+    src: "/assets/Sampai Jadi Debu.mp3", // Path inside public/assets/
+    cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300&auto=format&fit=crop"
   }
 ]
 ```
 
 ---
 
-### D. Mengubah Pertanyaan Kuis Kenangan
-Ubah pertanyaan, opsi jawaban, dan jawaban yang benar di `quiz`:
+### D. Memory Trivia Quiz
+Customize questions, options, correct answers (`correctIndex`), and closing messages:
 
 ```javascript
 quiz: {
-  title: "Kuis Kenangan",
-  subtitle: "Beberapa pertanyaan singkat tentang hal-hal yang pernah kita lewati.",
+  title: "Our Memory Trivia",
+  subtitle: "A gentle quiz about the moments we have shared together.",
   questions: [
     {
       id: 1,
-      question: "Di mana pertama kali kita ngobrol santai berdua?",
-      options: ["Kafe Dekat Kampus", "Taman Kota", "Bioskop", "Pasar Malam"],
-      correctIndex: 0, // Indeks jawaban benar (0 = Opsi pertama, 1 = Opsi kedua, dst)
-      explanation: "Waktu itu pesen kopi susu dan ngobrol lumayan lama."
+      question: "Where did we have our very first casual coffee chat?",
+      options: ["Campus Coffee Shop", "City Park", "Cinema XXI", "Night Market"],
+      correctIndex: 0, // 0 = 1st option, 1 = 2nd option, etc.
+      explanation: "We ordered iced coffee and talked for hours until evening."
     }
   ]
 }
@@ -112,47 +109,47 @@ quiz: {
 
 ---
 
-### E. Mengatur PIN & Menulis Surat Cinta Rahasia
-Di bagian `loveLetter`, Anda bisa mengganti PIN pembuka (default: `1234`) dan menulis surat asli Anda:
+### E. Secret Sealed Letter & PIN Code
+Customize your 4-digit PIN (default: `1234`) and your personal letter:
 
 ```javascript
 loveLetter: {
-  title: "Surat Rahasia",
-  hint: "Petunjuk PIN: Tanggal jadian kita", // Petunjuk untuk pasangan Anda
-  pin: "1234", // Set 4 digit PIN rahasia (contoh: 1402)
-  envelopeTitle: "Pesan Tertutup",
-  salutation: "Halo Beby,",
-  content: `Tulis pesan cinta tulus Anda di sini.
+  title: "Sealed Letter",
+  hint: "PIN Hint: 1234",          // Hint for your partner
+  pin: "1234",                     // Set 4-digit PIN (e.g. "1402")
+  envelopeTitle: "For Your Eyes Only",
+  salutation: "Dearest Citra,",
+  content: `Write your sincere heart-felt letter here.
   
-Anda bisa membuat beberapa paragraf dengan menekan tombol Enter.`,
-  closing: "Salam hangat,",
-  senderName: "Dari aku"
+Press Enter to create paragraphs.`,
+  closing: "Forever yours,",
+  senderName: "With all my love"
 }
 ```
 
 ---
 
-## 🚀 4. Cara Menguji & Menjalankan Website di Komputer
+## 🚀 4. How to Run Locally
 
-1. Buka terminal di folder project ini.
-2. Jalankan perintah:
+1. Open your terminal in this project folder.
+2. Run:
    ```bash
    npm run dev
    ```
-3. Buka link **`http://localhost:5173/`** di browser Anda untuk melihat hasilnya secara langsung.
+3. Open **`http://localhost:5173/`** in your browser.
 
 ---
 
-## 🌐 5. Cara Mempublikasikan ke Internet (Deploy Gratis ke Vercel)
+## 🌐 5. Deploying Online for Free (Vercel / Netlify)
 
-Agar pasangan Anda bisa membuka link website ini langsung dari HP-nya:
+To share a private link with your partner:
 
-1. Buat akun gratis di [Vercel.com](https://vercel.com).
-2. Hubungkan repositori GitHub proyek ini ke Vercel (atau gunakan perintah `npx vercel` di terminal).
-3. Vercel akan otomatis membuatkan link publik (contoh: `https://kejutan-beby.vercel.app`) yang bisa langsung Anda kirimkan ke pasangan Anda!
+1. Create a free account at [Vercel.com](https://vercel.com).
+2. Connect your GitHub repository (or run `npx vercel` in terminal).
+3. Vercel will generate a private link (e.g., `https://for-citra.vercel.app`) to send to your partner!
 
 ---
 
-## 💡 Tips Penting
-- **Kompres Ukuran Foto/Video**: Usahakan ukuran foto di bawah 1MB dan video di bawah 10MB agar loading di HP pasangan Anda tidak lambat. Anda bisa menggunakan situs kompres gratis seperti [TinyPNG.com](https://tinypng.com).
-- **Format Musik**: Gunakan format file `.mp3` standar untuk compatibility terbaik di semua browser.
+## 💡 Optimization Tips
+- **Image/Video Compression**: Keep photos under 1MB and videos under 10MB using free tools like [TinyPNG.com](https://tinypng.com) for ultra-fast loading on mobile phones.
+- **Audio Format**: Use standard `.mp3` format for maximum browser compatibility.

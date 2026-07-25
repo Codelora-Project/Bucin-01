@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Calendar } from 'lucide-react';
 
-export default function HeroSection({ welcomeData }) {
+export default function HeroSection({ welcomeData, hasEntered }) {
   const [daysTogether, setDaysTogether] = useState(0);
 
   useEffect(() => {
@@ -13,6 +13,9 @@ export default function HeroSection({ welcomeData }) {
       setDaysTogether(diffDays);
     }
   }, [welcomeData]);
+
+  // If initial load before entry, keep elements hidden until hasEntered triggers stagger fade
+  const staggerClass = hasEntered ? 'stagger-fade-in' : '';
 
   return (
     <section
@@ -28,8 +31,9 @@ export default function HeroSection({ welcomeData }) {
       }}
     >
       <div className="section-container" style={{ textAlign: 'center' }}>
-        {/* Top Tagline */}
+        {/* 1. Top Tagline */}
         <div
+          className={staggerClass}
           style={{
             fontSize: '0.9rem',
             fontStyle: 'italic',
@@ -37,15 +41,16 @@ export default function HeroSection({ welcomeData }) {
             color: 'var(--maroon-accent)',
             marginBottom: '16px',
             letterSpacing: '1px',
-            opacity: 0.9,
+            opacity: hasEntered ? undefined : 0,
+            animationDelay: '350ms',
           }}
         >
           {welcomeData.badge || "a love letter in bloom"}
         </div>
 
-        {/* Main Serif Title */}
+        {/* 2. Main Serif Title */}
         <h1
-          className="font-serif"
+          className={`font-serif ${staggerClass}`}
           style={{
             fontSize: 'clamp(2.5rem, 6vw, 4.2rem)',
             color: 'var(--deep-maroon)',
@@ -55,13 +60,16 @@ export default function HeroSection({ welcomeData }) {
             maxWidth: '850px',
             margin: '0 auto 16px auto',
             letterSpacing: '-0.5px',
+            opacity: hasEntered ? undefined : 0,
+            animationDelay: '550ms',
           }}
         >
           {welcomeData.title}
         </h1>
 
-        {/* Subtitle */}
+        {/* 3. Subtitle */}
         <p
+          className={staggerClass}
           style={{
             fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
             color: 'var(--text-secondary)',
@@ -69,15 +77,17 @@ export default function HeroSection({ welcomeData }) {
             maxWidth: '580px',
             margin: '0 auto 36px auto',
             fontWeight: 300,
+            opacity: hasEntered ? undefined : 0,
+            animationDelay: '750ms',
           }}
         >
           {welcomeData.subtitle}
         </p>
 
-        {/* Days Counter */}
+        {/* 4. Days Counter */}
         {daysTogether > 0 && (
           <div
-            className="glass-card-dark"
+            className={`glass-card-dark ${staggerClass}`}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -85,6 +95,8 @@ export default function HeroSection({ welcomeData }) {
               padding: '12px 28px',
               marginBottom: '40px',
               border: '1px solid rgba(232, 136, 155, 0.2)',
+              opacity: hasEntered ? undefined : 0,
+              animationDelay: '950ms',
             }}
           >
             <div
@@ -111,13 +123,16 @@ export default function HeroSection({ welcomeData }) {
           </div>
         )}
 
-        {/* Hero Polaroid Image */}
+        {/* 5. Hero Polaroid Image */}
         {welcomeData.heroImage && (
           <div
+            className={staggerClass}
             style={{
               maxWidth: '440px',
               margin: '0 auto 40px auto',
               position: 'relative',
+              opacity: hasEntered ? undefined : 0,
+              animationDelay: '1150ms',
             }}
           >
             <div
@@ -149,8 +164,9 @@ export default function HeroSection({ welcomeData }) {
           </div>
         )}
 
-        {/* Scroll Indicator */}
+        {/* 6. Scroll Indicator */}
         <div
+          className={staggerClass}
           style={{
             marginTop: '30px',
             display: 'flex',
@@ -161,6 +177,8 @@ export default function HeroSection({ welcomeData }) {
             fontSize: '0.75rem',
             letterSpacing: '2px',
             textTransform: 'uppercase',
+            opacity: hasEntered ? undefined : 0,
+            animationDelay: '1350ms',
           }}
         >
           <span>SCROLL TO DISCOVER</span>

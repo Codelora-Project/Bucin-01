@@ -200,23 +200,6 @@ h1, h2, h3, h4 {
 }
 
 /* Keyframe Animations */
-@keyframes fadeInPage {
-  0% {
-    opacity: 0;
-    transform: translateY(24px) scale(0.98);
-    filter: blur(8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0px);
-  }
-}
-
-.animate-page-enter {
-  animation: fadeInPage 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
 @keyframes floatSlow {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-12px) rotate(3deg); }
@@ -230,6 +213,23 @@ h1, h2, h3, h4 {
 @keyframes rotateVinyl {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* Staggered Fade In Up Entrance Animation */
+@keyframes fadeInUpStagger {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.stagger-fade-in {
+  animation: fadeInUpStagger 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
 }
 
 .animate-float {

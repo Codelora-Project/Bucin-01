@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, Image, Music, HelpCircle, Mail } from 'lucide-react';
 
-export default function Navbar({ recipientName }) {
+export default function Navbar({ recipientName, hasEntered }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -40,8 +40,11 @@ export default function Navbar({ recipientName }) {
     { id: 'letter', label: 'Secret Letter', icon: Mail },
   ];
 
+  const staggerClass = hasEntered ? 'stagger-fade-in' : '';
+
   return (
     <header
+      className={staggerClass}
       style={{
         position: 'fixed',
         top: 0,
@@ -50,6 +53,8 @@ export default function Navbar({ recipientName }) {
         zIndex: 100,
         padding: scrolled ? '12px 24px' : '20px 24px',
         transition: 'all 0.3s ease',
+        opacity: hasEntered ? undefined : 0,
+        animationDelay: '150ms',
       }}
     >
       <div
