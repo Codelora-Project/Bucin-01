@@ -31,7 +31,7 @@ Open `src/config/content.js` in your text editor.
 ### A. Welcome Screen & Names
 ```javascript
 welcome: {
-  recipientName: "Citra Sayangg", // Name of your partner
+  recipientName: "Clara Sayangg", // Name of your partner
   senderName: "Me",               // Your name / nickname
   title: "For You, My Everything",
   subtitle: "Every petal holds a whisper of how much you mean to me.",
@@ -118,7 +118,7 @@ loveLetter: {
   hint: "PIN Hint: 1234",          // Hint for your partner
   pin: "1234",                     // Set 4-digit PIN (e.g. "1402")
   envelopeTitle: "For Your Eyes Only",
-  salutation: "Dearest Citra,",
+  salutation: "Dearest Clara,",
   content: `Write your sincere heart-felt letter here.
   
 Press Enter to create paragraphs.`,
@@ -146,7 +146,7 @@ To share a private link with your partner:
 
 1. Create a free account at [Vercel.com](https://vercel.com).
 2. Connect your GitHub repository (or run `npx vercel` in terminal).
-3. Vercel will generate a private link (e.g., `https://for-citra.vercel.app`) to send to your partner!
+3. Vercel will generate a private link (e.g., `https://for-clara.vercel.app`) to send to your partner!
 
 ---
 

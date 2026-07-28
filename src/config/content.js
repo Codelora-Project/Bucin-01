@@ -5,13 +5,13 @@
 export const siteContent = {
   // 1. Hero & Welcome Screen Data
   welcome: {
-    recipientName: "Citra Sayangg",
+    recipientName: "Clara Sayangg",
     senderName: "Me",
     title: "For You, My Everything",
     subtitle: "Every petal holds a whisper of how much you mean to me.",
     badge: "a love letter in bloom",
     startDate: "2023-02-14",
-    heroImage: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200&auto=format&fit=crop",
+    heroImage: "https://i.pinimg.com/vwebp/736x/37/1d/09/371d09b7cceed0256e8ad4f01b9fa9d8.webp",
   },
 
   // 2. Photo & Video Gallery
@@ -19,7 +19,7 @@ export const siteContent = {
     {
       id: 1,
       type: "photo",
-      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1000&auto=format&fit=crop",
+      src: "https://i.pinimg.com/736x/f9/a5/89/f9a589519eadc779d5aa01773c6355d0.jpg",
       caption: "Our first coffee date. We talked until time seemed to stand still.",
       tag: "you",
       date: "Feb 14, 2023",
@@ -28,7 +28,7 @@ export const siteContent = {
     {
       id: 2,
       type: "photo",
-      src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1000&auto=format&fit=crop",
+      src: "https://i.pinimg.com/736x/d8/20/35/d820353e9749928badafacc1b9cafdbb.jpg",
       caption: "Sunset by the shore. A quiet moment that still feels so warm.",
       tag: "are",
       date: "May 28, 2023",
@@ -37,7 +37,7 @@ export const siteContent = {
     {
       id: 3,
       type: "photo",
-      src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop",
+      src: "https://i.pinimg.com/736x/11/5b/dc/115bdccc81ee296f154e6bd07a3e8a8f.jpg",
       caption: "Laughing together for no reason at all. My favorite kind of happiness.",
       tag: "so",
       date: "Aug 12, 2023",
@@ -46,7 +46,7 @@ export const siteContent = {
     {
       id: 4,
       type: "photo",
-      src: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=1000&auto=format&fit=crop",
+      src: "https://i.pinimg.com/736x/8a/41/72/8a417258931e1bb7f70a216ada4e04a6.jpg",
       caption: "Candid moment while you were immersed in your book.",
       tag: "truly",
       date: "Oct 05, 2023",
@@ -55,7 +55,7 @@ export const siteContent = {
     {
       id: 5,
       type: "photo",
-      src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop",
+      src: "https://i.pinimg.com/736x/9f/8a/8c/9f8a8c66583488c239d2d71e8579e5dd.jpg",
       caption: "New Year's Eve. Simply being next to you was more than enough.",
       tag: "beautiful",
       date: "Dec 31, 2023",
@@ -64,7 +64,7 @@ export const siteContent = {
     {
       id: 6,
       type: "video",
-      src: "https://assets.mixkit.co/videos/preview/mixkit-couple-walking-hand-in-hand-on-the-beach-41484-large.mp4",
+      src: "/assets/beach.mp4",
       caption: "A short clip walking along the beach together.",
       tag: "always",
       date: "Jan 15, 2024",
@@ -79,21 +79,21 @@ export const siteContent = {
       title: "Sampai Jadi Debu",
       artist: "Banda Neira",
       src: "/assets/Sampai Jadi Debu.mp3",
-      cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300&auto=format&fit=crop"
+      cover: "https://i.pinimg.com/vwebp/1200x/9b/87/40/9b8740ac3e979e2497179974a3f64951.webp"
     },
     {
       id: 2,
-      title: "Until I Found You",
-      artist: "Stephen Sanchez",
-      src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-      cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300&auto=format&fit=crop"
+      title: "Best Part",
+      artist: "Daniel Caesar & H.E.R.",
+      src: "/assets/Best Part.mp3",
+      cover: "https://i.pinimg.com/vwebp/736x/0a/92/02/0a9202e18ff9ca7d82106dd6f28e9dfd.webp"
     },
     {
       id: 3,
       title: "Perfect",
       artist: "Ed Sheeran",
-      src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-      cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=300&auto=format&fit=crop"
+      src: "/assets/Perfect.mp3",
+      cover: "https://i.pinimg.com/736x/f4/25/fc/f425fc0f0aa0f201532af855446fa75e.jpg"
     }
   ],
 
