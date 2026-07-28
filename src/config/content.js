@@ -11,7 +11,7 @@ export const siteContent = {
     subtitle: "Every petal holds a whisper of how much you mean to me.",
     badge: "a love letter in bloom",
     startDate: "2023-02-14",
-    heroImage: "https://i.pinimg.com/vwebp/736x/37/1d/09/371d09b7cceed0256e8ad4f01b9fa9d8.webp",
+    heroImage: "https://i.pinimg.com/vwebp/1200x/69/5e/74/695e7450e8f2b0d7e0801a154094b707.webp",
   },
 
   // 2. Photo & Video Gallery
@@ -55,7 +55,7 @@ export const siteContent = {
     {
       id: 5,
       type: "photo",
-      src: "https://i.pinimg.com/736x/9f/8a/8c/9f8a8c66583488c239d2d71e8579e5dd.jpg",
+      src: "https://i.pinimg.com/736x/ea/04/99/ea0499878e72e7ef3ea48df5fcef5fd5.jpg",
       caption: "New Year's Eve. Simply being next to you was more than enough.",
       tag: "beautiful",
       date: "Dec 31, 2023",
